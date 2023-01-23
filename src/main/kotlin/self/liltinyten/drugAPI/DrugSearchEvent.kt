@@ -1,4 +1,4 @@
-package com.example.demo.drugAPI
+package self.liltinyten.drugAPI
 
 import tornadofx.FXEvent
 

@@ -1,6 +1,6 @@
-package com.example.demo.app
+package self.liltinyten.app
 
-import com.example.demo.view.MainView
+import self.liltinyten.view.MainView
 import javafx.stage.Stage
 import tornadofx.App
 

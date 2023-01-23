@@ -1,12 +1,8 @@
-package com.example.demo.view
+package self.liltinyten.view
 
-import com.example.demo.app.Styles
-import com.example.demo.drugAPI.DrugSearch
-import com.sun.javafx.binding.ContentBinding.bind
-import javafx.beans.property.SimpleListProperty
+import self.liltinyten.drugAPI.DrugSearch
 import javafx.geometry.Insets
 import javafx.geometry.Pos
-import javafx.scene.control.ListView
 import javafx.scene.layout.Background
 import javafx.scene.layout.BackgroundFill
 import javafx.scene.layout.CornerRadii
@@ -14,8 +10,6 @@ import javafx.scene.paint.Paint
 import javafx.scene.text.Font
 import javafx.scene.text.Text
 import tornadofx.*
-import java.util.*
-import kotlin.collections.ArrayList
 
 class MainView : View("Drug Search Application") {
 
