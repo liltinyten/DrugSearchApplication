@@ -2,6 +2,7 @@ package self.liltinyten.drugAPI;
 
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
+import kotlin.collections.MapsKt;
 import org.apache.commons.lang3.StringUtils;
 
 import java.io.BufferedReader;
@@ -163,13 +164,19 @@ public class DrugSearch {
             ArrayList<Map<String, Object>> reactionMapList = (ArrayList<Map<String, Object>>) respMap.get("results");
 
 
+            SortedMap<Double, String> sortedReactionList =  new TreeMap<Double, String>();
             String reactionList = "";
+
 
 
             for (Map<String, Object> sub: reactionMapList) {
                 String reaction = (String) sub.get("term");
+                double rarity = ((Double) sub.get("count"));
+                sortedReactionList.put(rarity, reaction);
+            }
 
-                reactionList += reaction + "\n\n";
+            for (double i:sortedReactionList.keySet()) {
+                reactionList += sortedReactionList.get(i) + "\n\n";
             }
 
 
