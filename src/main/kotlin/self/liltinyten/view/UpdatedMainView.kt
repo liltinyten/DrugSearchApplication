@@ -119,6 +119,7 @@ class UpdatedMainView : View("Drug Search Application") {
                         this.fill = Paint.valueOf(Color.BEIGE.toString())
                         bind(sideEffects.textProperty())
                         this.font = Font.font("Times", FontWeight.NORMAL, 12.0)
+
                     }
                     this.minHeight = boxHeight
                     this.minWidth = boxWidth
@@ -126,6 +127,7 @@ class UpdatedMainView : View("Drug Search Application") {
                     this.maxWidth = minWidth
                     this.style = "-fx-background: #4a2c2a;"
                     this.padding = Insets(5.0)
+                    this.isFitToWidth = true
                 }
             }
 
@@ -149,6 +151,7 @@ class UpdatedMainView : View("Drug Search Application") {
                     this.maxWidth = minWidth
                     this.style = "-fx-background: #4a2c2a;"
                     this.padding = Insets(5.0)
+                    this.isFitToWidth = true
                 }
             }
 
@@ -172,6 +175,8 @@ class UpdatedMainView : View("Drug Search Application") {
                     this.maxWidth = minWidth
                     this.style = "-fx-background: #4a2c2a;"
                     this.padding = Insets(5.0)
+                    this.isFitToWidth = true
+
                 }
             }
         }
