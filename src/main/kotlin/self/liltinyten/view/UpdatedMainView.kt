@@ -16,11 +16,11 @@ import tornadofx.*
 
 class UpdatedMainView : View("Drug Search Application") {
 
-    private var searchName: String = "Tylenol"
-    private var classProperty = text(DrugSearch.getDrugClassByName(searchName))
-    private var sideEffects: Text = text(DrugSearch.getDrugReactionsByName(searchName))
-    private var indications: Text = text(DrugSearch.getDrugIndicationsByName(searchName))
-    private var forms: Text = text(DrugSearch.getDrugDosageFormByName(searchName))
+    private var searchName = text("Tylenol")
+    private var classProperty = text(DrugSearch.getDrugClassByName(searchName.text))
+    private var sideEffects: Text = text(DrugSearch.getDrugReactionsByName(searchName.text))
+    private var indications: Text = text(DrugSearch.getDrugIndicationsByName(searchName.text))
+    private var forms: Text = text(DrugSearch.getDrugDosageFormByName(searchName.text))
 
 
 
@@ -75,6 +75,7 @@ class UpdatedMainView : View("Drug Search Application") {
             this.spacing = 5.0
 
             var drugName = text("Test") {
+                bind(searchName.textProperty())
                 this.font = Font.font("Times", FontWeight.NORMAL, 36.0)
                 this.fill = Paint.valueOf("#4a2c2a")
                 this.id = "drugName"
@@ -124,6 +125,7 @@ class UpdatedMainView : View("Drug Search Application") {
                     this.maxHeight = minHeight
                     this.maxWidth = minWidth
                     this.style = "-fx-background: #4a2c2a;"
+                    this.padding = Insets(5.0)
                 }
             }
 
@@ -146,6 +148,7 @@ class UpdatedMainView : View("Drug Search Application") {
                     this.maxHeight = minHeight
                     this.maxWidth = minWidth
                     this.style = "-fx-background: #4a2c2a;"
+                    this.padding = Insets(5.0)
                 }
             }
 
@@ -168,17 +171,29 @@ class UpdatedMainView : View("Drug Search Application") {
                     this.maxHeight = minHeight
                     this.maxWidth = minWidth
                     this.style = "-fx-background: #4a2c2a;"
+                    this.padding = Insets(5.0)
                 }
             }
         }
 
 
         searchButton.onLeftClick {
-            searchName = searchBox.text
-            classProperty.text = (DrugSearch.getDrugClassByName(searchName))
-            sideEffects.text = (DrugSearch.getDrugReactionsByName(searchName))
-            indications.text = (DrugSearch.getDrugIndicationsByName(searchName))
-            forms.text = (DrugSearch.getDrugDosageFormByName(searchName))
+            searchName.text = searchBox.text
+            val classProp = (DrugSearch.getDrugClassByName(searchName.text))
+            val sideEffect = (DrugSearch.getDrugReactionsByName(searchName.text))
+            val indication = (DrugSearch.getDrugIndicationsByName(searchName.text))
+            val form = (DrugSearch.getDrugDosageFormByName(searchName.text))
+            if (classProp == "null" || sideEffect == "null" || indication == "null" || form == "null") {
+                searchName.text = "Invalid drug"
+                classProperty.text = "Please make sure the drug name is spelled correctly."
+            } else {
+                classProperty.text = classProp
+                sideEffects.text = sideEffect
+                indications.text = indication
+                forms.text = form
+            }
+
+
         }
 
 
